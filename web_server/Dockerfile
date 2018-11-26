@@ -29,4 +29,5 @@ env LANG               C
 
 WORKDIR /var/www/html
 
-CMD ["/usr/bin/supervisord"]
+##CMD ["/usr/bin/supervisord"]
+CMD ["supervisord", "-c", "/usr/bin/supervisord"]
