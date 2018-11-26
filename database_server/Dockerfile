@@ -20,10 +20,5 @@ RUN apt-get update \
     chown -R mysql:mysql /var/run/mysqld && \
     chown -R mysql:mysql /var/log/mysql &&\
     chmod -R 777 /var/run/mysqld/ \
-    && sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf \
-##install supervisor and setup supervisord.conf file
-    && apt-get install -y supervisor nano \
-    && mkdir -p /var/log/supervisor 
-##CMD ["/usr/bin/supervisord"]
-CMD ["supervisord", "-c", "/usr/bin/supervisord"]
+    && sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
 
