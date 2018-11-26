@@ -30,4 +30,3 @@ env LANG               C
 WORKDIR /var/www/html
 
 CMD ["/usr/bin/supervisord"]
-
