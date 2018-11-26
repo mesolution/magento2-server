@@ -24,5 +24,6 @@ RUN apt-get update \
 ##install supervisor and setup supervisord.conf file
     && apt-get install -y supervisor nano \
     && mkdir -p /var/log/supervisor 
-CMD ["/usr/bin/supervisord"]
+##CMD ["/usr/bin/supervisord"]
+CMD ["supervisord", "-c", "/usr/bin/supervisord"]
 
