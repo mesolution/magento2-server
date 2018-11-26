@@ -25,3 +25,4 @@ RUN apt-get update \
     && apt-get install -y supervisor nano \
     && mkdir -p /var/log/supervisor 
 CMD ["/usr/bin/supervisord"]
+
