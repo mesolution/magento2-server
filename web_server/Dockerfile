@@ -16,18 +16,4 @@ RUN apt-get update \
     && sed -i -e"s/^memory_limit\s*=\s*128M/memory_limit = 512M/" /etc/php/7.1/apache2/php.ini \
     && rm /var/www/html/* \
     && sed -i "s/None/all/g" /etc/apache2/apache2.conf \
-##install supervisor and setup supervisord.conf file
-    && apt-get install -y supervisor \
-    && mkdir -p /var/log/supervisor
-env APACHE_RUN_USER    www-data
-env APACHE_RUN_GROUP   www-data
-env APACHE_PID_FILE    /var/run/apache2.pid
-env APACHE_RUN_DIR     /var/run/apache2
-env APACHE_LOCK_DIR    /var/lock/apache2
-env APACHE_LOG_DIR     /var/log/apache2
-env LANG               C
 
-WORKDIR /var/www/html
-
-##CMD ["/usr/bin/supervisord"]
-CMD ["supervisord", "-c", "/usr/bin/supervisord"]
